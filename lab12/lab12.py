@@ -309,6 +309,10 @@ def build_example_plots(y_in, y_ex, values_x, offset):
 
     plt.plot([-0.5, 0.5], [b_vec2[1] + b_vec2[0] * -0.5, b_vec2[1] + b_vec2[0] * 0.5], label="Argmax Tol", color="red",
              zorder=1000)
+    for j in range(len(b_tol_vertices)):
+        plt.plot([-0.5, 0.5], [b_tol_vertices[j][1] + b_tol_vertices[j][0] * -0.5, b_tol_vertices[j][1] + b_tol_vertices[j][0] * 0.5], color="green",
+                zorder=1000)
+        val = b_tol_vertices[j][1] + b_tol_vertices[j][0] * (x0 + x1) / 2
     plt.xlim((-0.6, 0.6))
     plt.ylim((-0.6, 0.6))
     plt.savefig(f'results/example_{offset}/method2.png')
